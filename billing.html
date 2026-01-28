@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Bill | V A Surya Photo Frames</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>➕ Add Billing</h2>
+</header>
+
+<div class="card">
+  <input id="shop" placeholder="🏪 Shop Name">
+  <input id="num" placeholder="📞 Number">
+  <input id="items" placeholder="🖼️ Items">
+  <input type="number" id="total" placeholder="💵 Total Amount">
+  <input type="number" id="paid" placeholder="💳 Paid Amount">
+  <input id="balance" placeholder="⚖️ Balance" readonly>
+  <button onclick="saveBill()">💾 Save Bill</button>
+</div>
+
+<script>
+paid.oninput = total.oninput = ()=>{
+  balance.value = (total.value||0)-(paid.value||0);
+};
+
+function saveBill(){
+  if(!shop.value || !total.value){
+    alert("⚠️ Please fill required fields");
+    return;
+  }
+
+  const bills = JSON.parse(localStorage.getItem("bills")) || [];
+  bills.push({
+    id:Date.now(),
+    shop:shop.value,
+    num:num.value,
+    items:items.value,
+    total:total.value,
+    paid:paid.value,
+    balance:balance.value
+  });
+
+  localStorage.setItem("bills",JSON.stringify(bills));
+  alert("✅ Bill Added Successfully");
+  location.href="history.html";
+}
+</script>
+
+</body>
+</html>
+

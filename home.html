@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home | V A Surya Photo Frames</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>📸 V A Surya Photo Frames</h2>
+  <div class="top-btns">
+    <button onclick="go('billing.html')">➕ Add Bill</button>
+    <button onclick="go('history.html')">📜 History</button>
+    <button onclick="logout()">🚪 Logout</button>
+  </div>
+</header>
+
+<div class="welcome">
+  <h3>welcome 👋</h3>
+  <p>Manage your billing easily 💼✨</p>
+  <p class="surya">
+📸 All types of Photo Frames available
+
+🖼️ Custom Photo Framing Services
+
+✨ Quality Frames at Best Price
+
+🎨 Modern & Classic Frame Designs
+
+🏆 Trusted Photo Frame Service</p>
+</div>
+
+<script>
+if(!localStorage.getItem("login")) location.href="index.html";
+function go(p){location.href=p;}
+function logout(){
+  localStorage.removeItem("login");
+  location.href="index.html";
+}
+</script>
+
+</body>
+</html>

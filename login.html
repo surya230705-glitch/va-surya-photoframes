@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login | V A Surya Photo Frames</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+<div class="card">
+  <h2>📸 V A Surya Photo Frames</h2>
+  <p>Welcome 👋</p>
+  <input id="user" placeholder="👤 Username">
+  <input id="pass" type="password" placeholder="🔑 Password">
+  <button onclick="login()">Login ➡️</button>
+</div>
+
+<script>
+function login(){
+  if(user.value==="admin" && pass.value==="1234"){
+    localStorage.setItem("login","true");
+    location.href="home.html";
+  } else {
+    alert("❌ Invalid Login");
+  }
+}
+</script>
+
+</body>
+</html>

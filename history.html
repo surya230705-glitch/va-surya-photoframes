@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>History | V A Surya Photo Frames</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>📜 Billing History</h2>
+</header>
+
+<table>
+<tr>
+<th>🏪 Shop</th>
+<th>💵 Total</th>
+<th>💳 Paid</th>
+<th>⚖️ Balance</th>
+<th>⚙️ Action</th>
+</tr>
+<tbody id="list"></tbody>
+</table>
+
+<script>
+const bills = JSON.parse(localStorage.getItem("bills")) || [];
+list.innerHTML = bills.map((b,i)=>`
+<tr>
+<td>${b.shop}</td>
+<td>${b.total}</td>
+<td>${b.paid}</td>
+<td>${b.balance}</td>
+<td>
+<button onclick="edit(${i})">✏️</button>
+<button onclick="del(${i})">🗑️</button>
+</td>
+</tr>`).join("");
+
+function del(i){
+  if(confirm("Delete this bill? 🗑️")){
+    bills.splice(i,1);
+    localStorage.setItem("bills",JSON.stringify(bills));
+    location.reload();
+  }
+}
+function edit(i){
+  alert("✏️ Edit feature coming soon");
+}
+</script>
+
+</body>
+</html>
